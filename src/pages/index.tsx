@@ -400,7 +400,7 @@ export default function Home() {
             <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
               I&apos;m an experienced full-stack developer skilled in React, Node.js, Express.js, PostgreSQL, and Socket.IO, building scalable web apps since 2023. I handle the full product cycle—from design and development to automated testing with Jest and Postman. I&apos;ve worked on projects like ticket booking systems,Automated Recruitment, and real-time chat apps, collaborating effectively with cross-functional teams to deliver reliable, user-focused solutions.
             </h2>
-            <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
+{/*             <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
               {aboutStats.map((stat) => (
                 <div
                   key={stat.label}
@@ -414,7 +414,7 @@ export default function Home() {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </section>
 
