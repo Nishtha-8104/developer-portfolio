@@ -26,6 +26,38 @@ import {
 } from "@/components/ui/carousel";
 import VanillaTilt from "vanilla-tilt";
 import { motion } from "framer-motion";
+import {
+  SiReact,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiPostgresql,
+  SiSocketdotio,
+  SiGit,
+  SiExpress,
+  SiHtml5,
+  SiCss3,
+  SiJest,
+  SiPostman,
+  SiChakraui,
+  SiMui,
+  SiJavascript,
+  SiApachejmeter,
+  SiGithub,
+  SiGithubcopilot,
+  SiSelenium,
+  SiVercel,
+  SiRender,
+  SiOverleaf,
+  SiMocha,
+  SiScikitlearn,
+  SiTensorflow,
+  SiPandas,
+  SiStreamlit,
+  SiC,
+  SiCplusplus,
+  SiPython,
+} from "react-icons/si";
+
 
 const aboutStats = [
   { label: "Years of experience", value: "3+" },
@@ -33,34 +65,95 @@ const aboutStats = [
   { label: "Companies worked with", value: "15+" },
 ];
 
+const skillsData = [
+  
+  { name: "C", icon: SiC, category: "Programming Languages" },
+  { name: "C++", icon: SiCplusplus, category: "Programming Languages" },
+  { name: "Python", icon: SiPython, category: "Programming Languages" },
+
+  { name: "React", icon: SiReact, category: "Frontend" },
+  { name: "HTML5", icon: SiHtml5, category: "Frontend" },
+  { name: "CSS3", icon: SiCss3, category: "Frontend" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, category: "Frontend" },
+  { name: "Chakra UI", icon: SiChakraui, category: "Frontend" },
+  { name: "Material UI", icon: SiMui, category: "Frontend" },
+
+  { name: "JavaScript", icon: SiJavascript, category: "Backend" },
+  { name: "Node.js", icon: SiNodedotjs, category: "Backend" },
+  { name: "Express.js", icon: SiExpress, category: "Backend" },
+  { name: "PostgreSQL", icon: SiPostgresql, category: "Backend" },
+  { name: "Socket.IO", icon: SiSocketdotio, category: "Backend" },
+
+  { name: "Git", icon: SiGit, category: "Tools & Dev" },
+  { name: "Jest", icon: SiJest, category: "Tools & Dev" },
+  { name: "Postman", icon: SiPostman, category: "Tools & Dev" },
+  { name: "Apache JMeter", icon: SiApachejmeter, category: "Tools & Dev" },
+  { name: "GitHub", icon: SiGithub, category: "Tools & Dev" },
+  { name: "GitHub Copilot", icon: SiGithubcopilot, category: "Tools & Dev" },
+  { name: "Selenium", icon: SiSelenium, category: "Tools & Dev" },
+  { name: "Overleaf", icon: SiOverleaf, category: "Tools & Dev" },
+  { name: "Mocha", icon: SiMocha, category: "Tools & Dev" },
+  { name: "scikit-learn", icon: SiScikitlearn, category: "Machine Learning" },
+  { name: "TensorFlow", icon: SiTensorflow, category: "Machine Learning" },
+  { name: "Streamlit", icon: SiStreamlit, category: "Machine Learning" },
+  { name: "Pandas", icon: SiPandas, category: "Machine Learning" },
+  { name: "Vercel", icon: SiVercel, category: "Hosting" },
+  { name: "Render", icon: SiRender, category: "Hosting" },
+
+];
+
+const experiences = [
+  {
+    role: "Machine Learning Intern",
+    company: "Nitika Infotech",
+    period: "April 2025 – July 2025",
+    description:
+      "Completed a 2-month summer internship focused on Machine Learning. Built a sales prediction project using the Apriori Association algorithm to identify product pairs frequently bought together.",
+  },
+  {
+    role: "React Developer – Label Generating Project",
+    company: "NHB Ball Roller Ltd, Bilimora, India",
+    period: "December 2023",
+    description:
+      "Developed an automated label generation system using React and Data Matrix for comprehensive product information retrieval, improving efficiency by 30%. Collaborated directly with the Business Unit Head to ensure timely and successful project delivery.",
+  },
+];
+
+
 const projects = [
   {
-    title: "Unqueue",
-    description: "E-commerce platform for selling digital products",
+    title: "IRCTC-Inspired Ticket Booking System",
+    description: "Full-stack ticket reservation app with custom login and course-wise seat availability.",
     image: "/assets/unqueue.webm",
     href: "https://unqueue.shop/",
   },
   {
-    title: "InfiniteVPS",
-    description: "High performance VPS hosting solution",
+    title: "Real-Time Chat Application",
+    description: "Course-specific chat system with Socket.IO for live communication and private messaging.",
     image: "/assets/infinitevps.webm",
     href: "#",
   },
   {
-    title: "TranslateBot",
-    description: "Powerful Multilingual Translation Bot for Discord",
+    title: "EduNexus",
+    description: "Full-stack academic dashboard for students and faculty with login, chat, attendance, notes, and assignment management.",
+    image: "/assets/portfolio.webm",
+    href: "https://github.com/wendoj/portfolio",
+  },
+  {
+    title: "Automated Recruitment System",
+    description: "Resume-based screening, online tests, and bot-led interviews with smart filtering.",
     image: "/assets/translate_bot.webm",
     href: "https://translatebot.app/",
   },
   {
-    title: "Wrona",
-    description: "Robotics-focused technology company",
+    title: "Agentless Patch Validator (SWE-benchlite)",
+    description: "Validates and ranks LLM-generated code patches using test regression and reproduction logic.",
     image: "/assets/wrona.jpeg",
     href: "https://www.wrona.com/",
   },
   {
-    title: "This website",
-    description: "My personal website",
+    title: "Portfolio Website",
+    description: "Your personal site showcasing projects, services, and animations",
     image: "/assets/portfolio.webm",
     href: "https://github.com/wendoj/portfolio",
   },
@@ -172,6 +265,43 @@ export default function Home() {
     });
   }, []);
 
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  let isDown = false;
+  let startX: number;
+  let scrollLeft: number;
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    isDown = true;
+    if (!scrollRef.current) return;
+    startX = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeft = scrollRef.current.scrollLeft;
+  };
+
+  const onMouseLeave = () => {
+    isDown = false;
+  };
+
+  const onMouseUp = () => {
+    isDown = false;
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDown || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2; //scroll-fast multiplier
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const groupedSkills = skillsData.reduce((acc, skill) => {
+    if (!acc[skill.category]) {
+      acc[skill.category] = [];
+    }
+    (acc[skill.category] ?? []).push(skill);
+    return acc;
+  }, {} as Record<string, typeof skillsData>);
+
+
   return (
     <Container>
       <div ref={refScrollContainer}>
@@ -190,9 +320,9 @@ export default function Home() {
               data-scroll-speed=".09"
               className="flex flex-row items-center space-x-1.5"
             >
-              <span className={styles.pill}>next.js</span>
-              <span className={styles.pill}>tailwindcss</span>
-              <span className={styles.pill}>typescript</span>
+              <span className={styles.pill}>React</span>
+              <span className={styles.pill}>Node.js</span>
+              <span className={styles.pill}>PostgreSQL</span>
             </div>
             <div>
               <h1
@@ -206,7 +336,7 @@ export default function Home() {
                   <br />
                 </span>
                 <span className="clash-grotesk text-gradient text-6xl 2xl:text-8xl">
-                  WendoJ.
+                  Nishtha.
                 </span>
               </h1>
               <p
@@ -215,8 +345,7 @@ export default function Home() {
                 data-scroll-speed=".06"
                 className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl"
               >
-                An experienced full-stack website developer with a passion for
-                crafting unique digital experiences.
+                An experienced full-stack developer passionate about building robust and scalable web applications with seamless user experiences.
               </p>
             </div>
             <span
@@ -269,19 +398,7 @@ export default function Home() {
             className="my-14 flex max-w-6xl flex-col justify-start space-y-10"
           >
             <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
-              I&apos;m an experienced full-stack developer proficient in{" "}
-              <Link
-                href="https://create.t3.gg/"
-                target="_blank"
-                className="underline"
-              >
-                TypeScript, Tailwind, and Next.js
-              </Link>{" "}
-              since 2021. My experience spans from startups to mid-sized
-              companies, where I&apos;ve been instrumental in the entire product
-              design process; from ideation and wireframing, through
-              prototyping, to the delivery of the final product, all while
-              efficiently collaborating with cross-functional teams.
+              I'm an experienced full-stack developer skilled in React, Node.js, Express.js, PostgreSQL, and Socket.IO, building scalable web apps since 2023. I handle the full product cycle—from design and development to automated testing with Jest and Postman. I've worked on projects like ticket booking systems,Automated Recruitment, and real-time chat apps, collaborating effectively with cross-functional teams to deliver reliable, user-focused solutions.
             </h2>
             <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
               {aboutStats.map((stat) => (
@@ -323,7 +440,7 @@ export default function Home() {
               ✨ Projects
             </span>
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-6xl">
-              Streamlined digital experiences.
+             Scalable Full-Stack Websites with Real-Time and Secure Features
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
               I&apos;ve worked on a variety of projects, from small websites to
@@ -333,9 +450,20 @@ export default function Home() {
             {/* Carousel */}
             <div className="mt-14">
               <Carousel setApi={setCarouselApi} className="w-full">
-                <CarouselContent>
+                <CarouselContent
+                  ref={scrollRef}
+                  className="flex overflow-x-auto scrollbar-hide select-none"
+                  onMouseDown={onMouseDown}
+                  onMouseLeave={onMouseLeave}
+                  onMouseUp={onMouseUp}
+                  onMouseMove={onMouseMove}
+                  style={{ scrollBehavior: "smooth" }}
+                >
                   {projects.map((project) => (
-                    <CarouselItem key={project.title} className="md:basis-1/2">
+                    <CarouselItem
+                      key={project.title}
+                      className="md:basis-1/2 flex-shrink-0"
+                    >
                       <Card id="tilt">
                         <CardHeader className="p-0">
                           <Link href={project.href} target="_blank" passHref>
@@ -360,10 +488,16 @@ export default function Home() {
                           </Link>
                         </CardHeader>
                         <CardContent className="absolute bottom-0 w-full bg-background/50 backdrop-blur">
-                          <CardTitle className="border-t border-white/5 p-4 text-base font-normal tracking-tighter">
-                            {project.description}
-                          </CardTitle>
+                          <div className="border-t border-white/5 p-4">
+                            <CardTitle className="text-base font-semibold tracking-tight text-foreground">
+                              {project.title}
+                            </CardTitle>
+                            <p className="mt-1 text-sm font-normal tracking-tight text-muted-foreground">
+                              {project.description}
+                            </p>
+                          </div>
                         </CardContent>
+
                       </Card>
                     </CarouselItem>
                   ))}
@@ -371,15 +505,69 @@ export default function Home() {
                 <CarouselPrevious />
                 <CarouselNext />
               </Carousel>
+
               <div className="py-2 text-center text-sm text-muted-foreground">
                 <span className="font-semibold">
-                  {current} / {count}
+                   {count}
                 </span>{" "}
                 projects
               </div>
             </div>
           </div>
         </section>
+
+        <section id="experience" data-scroll-section className="my-64 max-w-5xl mx-auto px-6 sm:px-8 lg:px-0">
+            <h2 className="mb-12 text-4xl font-extrabold tracking-tight text-foreground xl:text-4xl">
+              Experience👩🏻‍💻
+            </h2>
+            <div className="flex flex-col space-y-10">
+              {experiences.map((exp, idx) => (
+                <article
+                  key={idx}
+                  className="group relative rounded-xl border border-primary/30 bg-background/30 p-8 shadow-lg transition-shadow hover:shadow-primary/50"
+                >
+                  <h3 className="text-2xl font-semibold text-primary group-hover:text-primary/90">
+                    {exp.role}
+                  </h3>
+                  <p className="mt-1 text-sm italic text-muted-foreground">
+                    {exp.company} &middot; {exp.period}
+                  </p>
+                  <p className="mt-4 max-w-prose text-base leading-relaxed text-foreground">
+                    {exp.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section id="skills" data-scroll-section className="my-64 max-w-6xl mx-auto px-6 sm:px-8 lg:px-0">
+      <h2 className="mb-12 text-4xl font-extrabold tracking-tight text-foreground xl:text-4xl">
+        Skills & Tech Stack 🚀
+      </h2>
+
+          <div className="grid gap-16 md:grid-cols-3">
+            {Object.entries(groupedSkills).map(([category, skills]) => (
+              <div key={category} className="rounded-xl border border-primary/30 bg-background/30 p-6 shadow transition duration-300 hover:shadow-lg">
+                <h3 className="text-xl font-semibold text-primary mb-6">{category}</h3>
+                <div className="grid grid-cols-3 gap-6 justify-items-center">
+                  {skills.map(({ name, icon: Icon }) => (
+                    <motion.div
+                      key={name}
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      className="flex flex-col items-center space-y-2 cursor-pointer"
+                      title={name}
+                    >
+                      <Icon className="text-primary h-14 w-14" />
+                      <span className="text-sm font-medium text-muted-foreground">{name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+
 
         {/* Services */}
         <section id="services" data-scroll-section>
@@ -455,6 +643,8 @@ export default function Home() {
     </Container>
   );
 }
+
+
 
 function Gradient() {
   return (
