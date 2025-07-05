@@ -398,7 +398,7 @@ export default function Home() {
             className="my-14 flex max-w-6xl flex-col justify-start space-y-10"
           >
             <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
-              I'm an experienced full-stack developer skilled in React, Node.js, Express.js, PostgreSQL, and Socket.IO, building scalable web apps since 2023. I handle the full product cycle—from design and development to automated testing with Jest and Postman. I've worked on projects like ticket booking systems,Automated Recruitment, and real-time chat apps, collaborating effectively with cross-functional teams to deliver reliable, user-focused solutions.
+              I&apos;m an experienced full-stack developer skilled in React, Node.js, Express.js, PostgreSQL, and Socket.IO, building scalable web apps since 2023. I handle the full product cycle—from design and development to automated testing with Jest and Postman. I&apos;ve worked on projects like ticket booking systems,Automated Recruitment, and real-time chat apps, collaborating effectively with cross-functional teams to deliver reliable, user-focused solutions.
             </h2>
             <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
               {aboutStats.map((stat) => (
