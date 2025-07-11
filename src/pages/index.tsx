@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/carousel";
 import VanillaTilt from "vanilla-tilt";
 import { motion } from "framer-motion";
+import { Award } from "lucide-react";
 import {
   SiReact,
   SiTailwindcss,
@@ -56,6 +57,9 @@ import {
   SiC,
   SiCplusplus,
   SiPython,
+  SiLangchain,
+  SiFigma,
+  SiNpm,
 } from "react-icons/si";
 
 
@@ -66,41 +70,77 @@ const aboutStats = [
 ];
 
 const skillsData = [
-  
+  // Programming Languages
   { name: "C", icon: SiC, category: "Programming Languages" },
   { name: "C++", icon: SiCplusplus, category: "Programming Languages" },
   { name: "Python", icon: SiPython, category: "Programming Languages" },
 
+  // Frontend
   { name: "React", icon: SiReact, category: "Frontend" },
   { name: "HTML5", icon: SiHtml5, category: "Frontend" },
   { name: "CSS3", icon: SiCss3, category: "Frontend" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, category: "Frontend" },
-  { name: "Chakra UI", icon: SiChakraui, category: "Frontend" },
-  { name: "Material UI", icon: SiMui, category: "Frontend" },
 
+  // Frameworks & UI
+  { name: "Tailwind CSS", icon: SiTailwindcss, category: "Frameworks & UI" },
+  { name: "Chakra UI", icon: SiChakraui, category: "Frameworks & UI" },
+  { name: "Material UI", icon: SiMui, category: "Frameworks & UI" },
+
+  // Backend
   { name: "JavaScript", icon: SiJavascript, category: "Backend" },
   { name: "Node.js", icon: SiNodedotjs, category: "Backend" },
   { name: "Express.js", icon: SiExpress, category: "Backend" },
   { name: "PostgreSQL", icon: SiPostgresql, category: "Backend" },
   { name: "Socket.IO", icon: SiSocketdotio, category: "Backend" },
 
-  { name: "Git", icon: SiGit, category: "Tools & Dev" },
-  { name: "Jest", icon: SiJest, category: "Tools & Dev" },
-  { name: "Postman", icon: SiPostman, category: "Tools & Dev" },
-  { name: "Apache JMeter", icon: SiApachejmeter, category: "Tools & Dev" },
-  { name: "GitHub", icon: SiGithub, category: "Tools & Dev" },
-  { name: "GitHub Copilot", icon: SiGithubcopilot, category: "Tools & Dev" },
-  { name: "Selenium", icon: SiSelenium, category: "Tools & Dev" },
-  { name: "Overleaf", icon: SiOverleaf, category: "Tools & Dev" },
-  { name: "Mocha", icon: SiMocha, category: "Tools & Dev" },
-  { name: "scikit-learn", icon: SiScikitlearn, category: "Machine Learning" },
-  { name: "TensorFlow", icon: SiTensorflow, category: "Machine Learning" },
-  { name: "Streamlit", icon: SiStreamlit, category: "Machine Learning" },
-  { name: "Pandas", icon: SiPandas, category: "Machine Learning" },
+  // Tools & DevOps
+  { name: "Git", icon: SiGit, category: "Tools & DevOps" },
+  { name: "GitHub", icon: SiGithub, category: "Tools & DevOps" },
+  { name: "GitHub Copilot", icon: SiGithubcopilot, category: "Tools & DevOps" },
+  { name: "Overleaf", icon: SiOverleaf, category: "Tools & DevOps" },
+  {name:"Figma",icon:SiFigma,category:"Tools & DevOps"},
+  {name:"NPM",icon:SiNpm,category:"Tools & DevOps"},
+
+
+  // Testing
+  { name: "Jest", icon: SiJest, category: "Testing" },
+  { name: "Mocha", icon: SiMocha, category: "Testing" },
+  { name: "Postman", icon: SiPostman, category: "Testing" },
+  { name: "Selenium", icon: SiSelenium, category: "Testing" },
+  { name: "Apache JMeter", icon: SiApachejmeter, category: "Testing" },
+
+  // AI/ML Frameworks
+  { name: "LangChain", icon: SiLangchain, category: "AI/ML Frameworks" },
+  { name: "TensorFlow", icon: SiTensorflow, category: "AI/ML Frameworks" },
+  { name: "scikit-learn", icon: SiScikitlearn, category: "AI/ML Frameworks" },
+  { name: "Streamlit", icon: SiStreamlit, category: "AI/ML Frameworks" },
+  { name: "Pandas", icon: SiPandas, category: "AI/ML Frameworks" },
+
+  // Hosting
   { name: "Vercel", icon: SiVercel, category: "Hosting" },
   { name: "Render", icon: SiRender, category: "Hosting" },
-
 ];
+
+const certifications = [
+  {
+    title: "Certified Full Stack Developer",
+    issuer: "Udemy",
+    year: "2023",
+    image: "/certifications/Webdev.jpg",
+  },
+  {
+    title: "Certified in Machine Learning A-Z course",
+    issuer: "Udemy",
+    year: "2025",
+    image: "/certifications/ML.jpg",
+  },
+  {
+    title: "Special Mention in WOC-6.o(React)",
+    issuer: "Microsoft Student Technical Club",
+    year: "2023",
+    image: "/certifications/woc'.png",
+  },
+];
+
 
 const experiences = [
   {
@@ -121,41 +161,49 @@ const experiences = [
 
 
 const projects = [
+  
   {
-    title: "IRCTC-Inspired Ticket Booking System",
-    description: "Full-stack ticket reservation app with custom login and course-wise seat availability.",
-    image: "/assets/unqueue.webm",
-    href: "https://unqueue.shop/",
+    title: "EduNexus",
+    description: "Full-stack academic dashboard for students and faculty with login, chat, attendance, notes, and assignment management.",
+    image: "/assets/Edunexus.png",
+    href: "https://github.com/202201209/G18_EDUNEXUS",
   },
   {
     title: "Real-Time Chat Application",
     description: "Course-specific chat system with Socket.IO for live communication and private messaging.",
-    image: "/assets/infinitevps.webm",
-    href: "#",
+    image: "/assets/chatweb.jpg",
+    href: "https://github.com/Nishtha-8104/Chat-website",
   },
   {
-    title: "EduNexus",
-    description: "Full-stack academic dashboard for students and faculty with login, chat, attendance, notes, and assignment management.",
-    image: "/assets/portfolio.webm",
-    href: "https://github.com/wendoj/portfolio",
+    title: "Space Organization Database",
+    description: "A command-line database system to manage space missions, astronauts, and spacecrafts efficiently using SQL and file operations",
+    image: "/assets/dbms.png",
+    href: "https://github.com/Nishtha-8104/SpaceOrganizationDatabase",
   },
   {
-    title: "Automated Recruitment System",
-    description: "Resume-based screening, online tests, and bot-led interviews with smart filtering.",
-    image: "/assets/translate_bot.webm",
-    href: "https://translatebot.app/",
+    title: "IRCTC-Inspired Ticket Booking System",
+    description: "Full-stack ticket reservation app with custom login and course-wise seat availability.",
+    image: "/assets/irctc.png",
+    href: "https://github.com/Nishtha-8104/WoC6.0-react-IRCTC-NishthaPatel",
+  },
+  {
+    title: "ThinkSpec",
+    description: "A comprehensive requirements engineering documentation suite, featuring user stories, stakeholder analysis, and detailed specifications in PDF format.",
+    image: "/assets/thinkspec.png", 
+    href: "https://github.com/Nishtha-8104/ThinkSpec"
   },
   {
     title: "Agentless Patch Validator (SWE-benchlite)",
     description: "Validates and ranks LLM-generated code patches using test regression and reproduction logic.",
-    image: "/assets/wrona.jpeg",
-    href: "https://www.wrona.com/",
+    image: "/assets/Agentless.png",
+    href: "https://github.com/Nishtha-8104/Agentless",
   },
+  
   {
-    title: "Portfolio Website",
-    description: "Your personal site showcasing projects, services, and animations",
-    image: "/assets/portfolio.webm",
-    href: "https://github.com/wendoj/portfolio",
+    title: "Automated Recruitment System",
+    description: "Resume-based screening, online tests, and bot-led interviews with smart filtering.",
+    image: "/assets/HCI.png",
+    href: "https://github.com/Nishtha-8104/HCI_LLD",
   },
 ];
 
@@ -354,7 +402,7 @@ export default function Home() {
               data-scroll-speed=".06"
               className="flex flex-row items-center space-x-1.5 pt-6"
             >
-              <Link href="mailto:wendoj@proton.me" passHref>
+              <Link href="mailto:patelnishtha78@gmail.com" passHref>
                 <Button>
                   Get in touch <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
@@ -400,7 +448,7 @@ export default function Home() {
             <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
               I&apos;m an experienced full-stack developer skilled in React, Node.js, Express.js, PostgreSQL, and Socket.IO, building scalable web apps since 2023. I handle the full product cycle—from design and development to automated testing with Jest and Postman. I&apos;ve worked on projects like ticket booking systems,Automated Recruitment, and real-time chat apps, collaborating effectively with cross-functional teams to deliver reliable, user-focused solutions.
             </h2>
-{/*             <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
+            {/* <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
               {aboutStats.map((stat) => (
                 <div
                   key={stat.label}
@@ -567,7 +615,48 @@ export default function Home() {
           </div>
         </section>
 
-
+        <section
+          id="certifications"
+          data-scroll-section
+          className="my-64 max-w-6xl mx-auto px-6 sm:px-8 lg:px-0"
+        >
+          <h2 className="mb-12 text-4xl font-extrabold tracking-tight text-foreground xl:text-4xl">
+            Certifications 🎓
+          </h2>
+          <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3">
+            {certifications.map(({ title, issuer, year, image }, idx) => (
+              <motion.a
+                key={idx}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="group flex flex-col rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/10 to-secondary/10 p-4 shadow-md transition-shadow hover:shadow-xl"
+                title={`${title} by ${issuer}`}
+              >
+                <div className="flex items-center space-x-3 text-primary mb-4">
+                  <Award size={28} />
+                  <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
+                </div>
+                <div className="relative h-48 w-full overflow-hidden rounded-lg border border-primary/20 bg-background">
+                  <Image
+                    src={image}
+                    alt={`${title} certificate`}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    className="transition-transform duration-300 group-hover:scale-105"
+                    priority
+                  />
+                </div>
+                <p className="mt-4 text-sm font-medium text-muted-foreground">
+                  {issuer} &middot; {year}
+                </p>
+                {/* <span className="mt-auto inline-block text-sm font-semibold text-primary underline decoration-primary/50 underline-offset-4">
+                  View Certificate
+                </span> */}
+              </motion.a>
+            ))}
+          </div>
+        </section>
 
         {/* Services */}
         <section id="services" data-scroll-section>
@@ -619,7 +708,7 @@ export default function Home() {
         </section>
 
         {/* Contact */}
-        <section id="contact" data-scroll-section className="my-64">
+        {/* <section id="contact" data-scroll-section className="my-64">
           <div
             data-scroll
             data-scroll-speed=".4"
@@ -634,11 +723,11 @@ export default function Home() {
               I&apos;m currently available for freelance work and open to
               discussing new projects.
             </p>
-            <Link href="mailto:wendoj@proton.me" passHref>
+            <Link href="mailto:patelnishtha78@gmail.com" passHref>
               <Button className="mt-6">Get in touch</Button>
             </Link>
           </div>
-        </section>
+        </section> */}
       </div>
     </Container>
   );
